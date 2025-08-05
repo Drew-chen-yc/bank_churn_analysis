@@ -1,47 +1,55 @@
-# Notching and Adjustment of Loss Given Default (LGD)
+# 🏦 Bank Churn Analysis
 
-## What is Notching?
-**Notching** refers to the practice used by credit rating agencies to adjust the rating of a specific security (e.g., a bond) **up or down by several notches** relative to the issuer's credit rating.  
-This adjustment reflects differences in the security’s default risk or loss severity in the event of default.
-
----
-
-## Applications of Notching
-
-### 1. Structured Debt and Different Debt Seniorities
-- Bonds may be issued in **senior**, **subordinated**, and **junior** tranches.
-- Even if issued by the same entity, recovery rates differ in default scenarios, leading to different notching adjustments.
-
-### 2. Secured vs. Unsecured Debt
-- **Secured debt** typically has a lower LGD in default and may be rated **one to two notches higher** than the issuer’s rating.
-- **Unsecured subordinated debt** typically has a higher LGD and may be rated **several notches lower**.
+**Project Period:** 2024/11 – 2025/2  
+**Data Source:** Kaggle
 
 ---
 
-## How Credit Rating Agencies Adjust LGD Through Notching
+## 🎯 Project Objective
+This project aims to analyze the main factors contributing to bank customer churn and build a machine learning model to predict the likelihood of customer attrition.  
+The goal is to help banks design retention strategies for high-risk customers.  
 
-| Step | Description |
-|------|-------------|
-| 1️⃣ Issuer Credit Rating (ICR) | Assess the overall creditworthiness of the company. |
-| 2️⃣ Identify Debt Type | Classify each instrument by its structure and payment priority. |
-| 3️⃣ Estimate LGD | Evaluate historical recovery rates, market data, and collateral arrangements. |
-| 4️⃣ Apply Notching | Adjust ratings to reflect LGD differences: <br> - Senior Secured: ICR + 1 notch <br> - Subordinated: ICR - 2 notches |
+The LightGBM (LGB) algorithm was primarily used for model training, and **Feature Importance** was applied to identify the key drivers of churn.
 
 ---
 
-## Example
+## 📊 Feature Importance Analysis
+According to the LightGBM feature importance ranking, the top factors influencing customer churn are:
 
-Assume a company’s ICR is **BBB**:
-
-| Debt Type         | Collateral | Seniority | Rating Adjustment | Final Credit Rating |
-|-------------------|------------|-----------|-------------------|---------------------|
-| Senior Secured    | Secured    | High      | +1 notch          | **BBB+**            |
-| Senior Unsecured  | Unsecured  | Medium    | None              | **BBB**             |
-| Subordinated      | Unsecured  | Low       | -2 notches        | **BB**              |
+1. **Balance** (Account Balance)  
+2. **Credit Score**  
+3. **NumComplaints** (Number of Complaints)  
+4. **NumOfProducts** (Number of Products Held)
 
 ---
 
-## Summary
-- **Notching** is a tool for fine-tuning credit risk assessments at the instrument level.
-- Its primary purpose is to **reflect LGD differences between debt instruments**.
-- For investors, it enables **more accurate measurement of potential loss and return trade-offs**.
+## 🔍 Analysis & Findings
+
+### **Balance (Account Balance)**
+- Customers with lower balances are more likely to churn, indicating a strong relationship between asset retention and loyalty.  
+- High-balance customers are more likely to maintain long-term relationships with the bank.  
+- **Recommendation:** Provide financial management services and incentives for low-balance customers.
+
+### **Credit Score**
+- Customers with lower credit scores are more prone to churn, possibly due to loan product eligibility, interest rates, and promotional offers.  
+- **Recommendation:** Develop services or educational programs aimed at improving credit scores for at-risk customers.
+
+### **NumComplaints (Number of Complaints)**
+- A higher number of complaints correlates with a higher churn risk, reflecting the link between customer satisfaction and retention.  
+- **Recommendation:** Improve customer service quality and response times to minimize negative experiences.
+
+### **NumOfProducts (Number of Products Held)**
+- Customers with fewer products (e.g., only a single account or service) have higher churn risk.  
+- **Recommendation:** Encourage cross-selling to increase product diversity and customer engagement.
+
+---
+
+## 📌 Summary & Recommendations
+- **High-balance** and **multi-product** customers should be nurtured to maintain loyalty.  
+- **Low credit score** and **high complaint frequency** customers are high-risk groups that require priority attention.  
+- Banks should implement tailored retention strategies for high-risk customers, including:
+  - Personalized incentives  
+  - Credit score improvement programs  
+  - Fast complaint resolution mechanisms  
+
+These actions can effectively reduce churn rates and improve customer loyalty.
