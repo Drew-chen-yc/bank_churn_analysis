@@ -13,6 +13,10 @@ The LightGBM (LGB) algorithm was primarily used for model training, and **Featur
 
 ---
 
+## 🎯 Model Selection
+Based on the binary target variable, we applied classification models such as logistic regression, Random Forest, CatBoost, LightGBM, and XGBoost to identify the best-performing model based on accuracy.
+Since the dataset may originate from a simulated system, the results appear exceptionally strong. Nevertheless, we selected the CatBoost model as the best performer and proceeded with further analysis based on its output.
+
 ## 📊 Feature Importance Analysis
 According to the LightGBM feature importance ranking, the top factors influencing customer churn are:
 
